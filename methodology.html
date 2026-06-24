@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology — How Index Returns Are Calculated | Indexly</title>
+<meta name="description" content="How Indexly calculates index returns, handles market holidays and weekends, and computes the ₹100 Invested comparison view across Nifty 50, S&P 500, NASDAQ, Shanghai, and DAX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">⌗</span>
+      <span class="logo-text">Index<em>ly</em></span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link">Markets</a>
+      <a href="methodology.html" class="nav-link active">Methodology</a>
+      <a href="about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-intro legal-intro">
+    <p class="eyebrow">How the numbers work</p>
+    <h1 class="page-title">Methodology</h1>
+    <p class="page-sub">A plain-language explanation of how index returns, custom date ranges, and the ₹100 Invested comparison are calculated.</p>
+  </section>
+
+  <section class="legal-content">
+
+    <h2>Data source and update frequency</h2>
+    <p>Indexly uses daily closing values for each index — Nifty 50, S&amp;P 500, NASDAQ, Shanghai, and DAX — sourced from publicly available market data. Each index updates once per day, after that market's official close, so figures shown reflect the most recently completed trading session rather than live or intraday prices.</p>
+
+    <h2>How percentage return is calculated</h2>
+    <p>For any selected time range, Indexly takes the closing value on the start date and the closing value on the end date, then calculates the percentage change between the two:</p>
+    <p><strong>Return % = ((End Close − Start Close) ÷ Start Close) × 100</strong></p>
+    <p>This is a close-to-close calculation only. Indexly does not use intraday highs, lows, or live tick data at any point — every figure shown is based on a confirmed end-of-day closing value.</p>
+
+    <h2>Handling weekends and market holidays</h2>
+    <p>Stock exchanges are closed on weekends and on public holidays, and holiday calendars differ by country — for example, Nifty 50 follows Indian market holidays, while the DAX follows the German exchange calendar. Because of this, a requested date may not always correspond to an actual trading day.</p>
+    <p>When this happens, Indexly resolves the date by stepping back through the actual sequence of recorded trading days until it finds the most recent session that genuinely occurred — rather than estimating based on a fixed number of calendar days. This means weekends and holidays are skipped automatically and precisely, based on which days each index actually traded, not on an assumption of "five trading days per week." This approach is applied consistently across both preset ranges (1D, 5D, 1M, 3M, 6M, YTD, 1Y) and custom date ranges.</p>
+
+    <h2>Preset ranges</h2>
+    <p>Each preset button calculates its starting point relative to the most recently available trading day, then applies the trading-day resolution described above. For example, selecting "1M" finds the closing value from one month prior to the latest session and compares it to the latest close.</p>
+
+    <h2>Custom date range</h2>
+    <p>The Custom option lets you choose any start and end date directly. If either date falls on a weekend or holiday, Indexly uses the closest actual trading day at or before the date selected, using the same resolution logic described above.</p>
+
+    <h2>Growth of 100 view</h2>
+    <p>This view answers a simple, practical question: how would each index's value have grown or shrunk over the selected period, relative to where it started? Indexly rescales every index to a common starting value of 100 on the first day of the selected range, then tracks that value forward based on the index's actual day-by-day percentage movement.</p>
+
+    <p>This makes it possible to visually compare indices that trade at very different price levels and in different currencies — such as NASDAQ and Shanghai — on the same scale, since the comparison is based on relative movement rather than absolute index value or currency.</p>
+
+
+<h2>Short-term comparisons across time zones</h2>
+    <p>Global markets close at different times — for example, Nifty 50 closes hours before European markets, which in turn close hours before US markets finish trading. This means a "1D" or "5D" comparison reflects each market's most recent available close at the time of the daily data update, not a single simultaneous moment in time. For this reason, short-term comparisons across markets in different time zones should be interpreted with this timing difference in mind. Longer ranges (1M and beyond) are far less affected, since a few hours' offset has minimal impact on a multi-week or multi-month return calculation.</p>
+
+    <h2>What this comparison does not include</h2>
+    <p>Index levels are typically quoted in their local currency and do not account for currency conversion, dividends, dividend reinvestment, or trading costs. Indexly's comparisons reflect relative price movement only, not total return on an actual investment.</p>
+
+    <h2>Informational purposes only</h2>
+    <p>Indexly is a comparison and research tool, not financial or investment advice. Past index performance does not predict future results. Always conduct your own research, or consult a licensed financial advisor, before making investment decisions.</p>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">⌗</span>
+      <span class="logo-text">Index<em>ly</em></span>
+    </div>
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </nav>
+    <p class="footer-disclaimer">Data is for informational and comparison purposes only. Not investment advice. Index values reflect daily closing prices only and may be delayed.</p>
+    <p class="footer-copy">&copy; 2026 Indexly</p>
+  </div>
+</footer>
+
+</body>
+</html>
