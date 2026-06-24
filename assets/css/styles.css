@@ -1,4 +1,4 @@
-/* ════════════════════════════════════
+﻿/* ════════════════════════════════════
    INDEXWATCH — GLOBAL MARKET COMPARISON
    Design tokens
 ════════════════════════════════════ */
@@ -554,12 +554,9 @@ main {
 }
 
 /* ── Chart canvas ── */
-/* ── Chart canvas ── */
 .chart-wrap {
   position: relative;
   width: 100%;
-  max-width: 100%; /* Force tight boundary constraint(GEMINI FIX) */
-  overflow: hidden; /* Prevent Canvas overflow stretching(GEMINI FIX) */
 }
 
 .chart-summary {
@@ -738,103 +735,47 @@ main {
   margin-right: auto;
 }
 
-
 /* ── Mobile tuning ── */
+
 @media (max-width: 640px) {
-  .page-intro { padding: 32px 0 22px; }
-  .panel { padding: 18px; }
-  .range-bar { padding: 14px 16px; }
-}
 
-/* ════════════════════════════════════
-   RESPONSIVE FIXES — TABLET & MOBILE
-   (sticky range-bar was taller than the
-   viewport and freezing over the page)
-════════════════════════════════════ */
-
-/* ── Tablet & below (≤1024px): kill the sticky behavior ── */
-@media (max-width: 1024px) {
-  .range-bar {
-    position: static;   /* sticky + a tall block = it covers the whole screen */
+  .page-intro {
+    padding: 24px 0 18px;
   }
-}
 
-/* ── Mid-screen / tablet portrait (≤768px) ── */
-@media (max-width: 768px) {
+  .panel {
+    padding: 16px;
+  }
 
   .range-bar {
-    grid-template-columns: 1fr;  /* drop the 2-col grid, stack everything in order */
-    row-gap: 8px;
+    position: static;      /* disable sticky */
+    padding: 14px;
+    display: block;
   }
 
-  .range-bar-inner,
-  .last-updated-inline,
-  .custom-range-panel,
-  .range-context {
-    grid-column: 1;
-    grid-row: auto;               /* prevents overlap once there's only 1 column */
-  }
-
-  .last-updated-inline { text-align: left; }
-  .custom-range-panel { margin-top: 2px; }
-  .custom-range-panel label { flex: 1 1 130px; }
-
-  .page-subtitle { font-size: 1rem; }
-
-  .chart-panel-head { flex-direction: column; align-items: flex-start; }
-}
-
-/* ── Small mobile (≤480px) ── */
-@media (max-width: 480px) {
-
-  main { padding: 0 16px 48px; }
-
-  .page-intro { padding: 24px 0 18px; }
-  .page-title { font-size: 1.7rem; }
-  .page-subtitle {
-    font-size: 0.92rem;   /* original clamp() had min > max, so it never actually shrank */
-    line-height: 1.4;
-  }
-  .page-sub { font-size: 0.9rem; }
-
-  .range-bar { padding: 14px; border-radius: 12px; }
-
-  /* one scrollable row of pills instead of wrapping into 4 rows */
-  .range-bar-inner {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-  }
-  .range-bar-inner::-webkit-scrollbar { display: none; }
-
-  .range-btn {
-    flex: 0 0 auto;
-    padding: 7px 12px;
-    font-size: 0.78rem;
+  .last-updated-inline {
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
 
   .custom-range-panel {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
   }
-  .custom-range-panel label,
-  .custom-range-panel input[type="date"],
-  .apply-btn { width: 100%; }
 
-  .panel { padding: 16px; border-radius: 12px; }
-  .data-grid { gap: 14px; }
+  .custom-range-panel label {
+    width: 100%;
+  }
 
-  .return-table { font-size: 0.86rem; }
-  .return-table td { padding: 11px 0; }
+  .custom-range-panel input[type="date"] {
+    width: 100%;
+  }
 
-  .chart-wrap { min-height: 240px; }
-  #comparisonChart { max-width: 100%; }
+  .apply-btn {
+    width: 100%;
+  }
 
-  .idx-chip { font-size: 0.78rem; padding: 6px 11px 6px 9px; }
-
-  .explainer { padding: 16px 18px; }
-  .explainer p { font-size: 0.8rem; }
 }
