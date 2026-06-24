@@ -739,7 +739,6 @@ main {
 }
 
 
-/* ════════════════════════════════════
 /* ── Mobile tuning ── */
 @media (max-width: 640px) {
   .page-intro { padding: 32px 0 22px; }
@@ -747,8 +746,9 @@ main {
   .range-bar { padding: 14px 16px; }
 }
 
-════════════════════════════════════ */
 
+
+/* ════════════════════════════════════
 /* ── Mobile tuning ── */
 @media (max-width: 640px) {
   .page-intro { 
@@ -761,7 +761,9 @@ main {
   }
   .range-bar { 
     padding: 14px 16px; 
-    grid-template-columns: 1fr; /* Switch sticky bar to a single row to avoid breaking on narrow layouts */
+    grid-template-columns: 1fr; /* Switch sticky bar to a single row to avoid breaking on narrow layouts 
+
+*/
   }
   .last-updated-inline {
     grid-column: 1;
@@ -770,3 +772,4 @@ main {
     margin-top: 8px;
   }
 }
+════════════════════════════════════ */
