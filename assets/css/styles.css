@@ -737,44 +737,7 @@ main {
 
 /* ── Mobile tuning ── */
 @media (max-width: 640px) {
-
-  .page-intro {
-    padding: 24px 0 18px;
-  }
-
-  .panel {
-    padding: 16px;
-  }
-
-  .range-bar {
-    position: static;      /* disable sticky */
-    padding: 14px;
-    display: block;
-  }
-
-  .last-updated-inline {
-    text-align: left;
-    margin-top: 12px;
-    margin-bottom: 12px;
-  }
-
-  .custom-range-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .custom-range-panel label {
-    width: 100%;
-  }
-
-  .custom-range-panel input[type="date"] {
-    width: 100%;
-  }
-
-  .apply-btn {
-    width: 100%;
-  }
-
+  .page-intro { padding: 32px 0 22px; }
+  .panel { padding: 18px; }
+  .range-bar { padding: 14px 16px; }
 }
