@@ -554,9 +554,12 @@ main {
 }
 
 /* ── Chart canvas ── */
+/* ── Chart canvas ── */
 .chart-wrap {
   position: relative;
   width: 100%;
+  max-width: 100%; /* Force tight boundary constraint(GEMINI FIX) */
+  overflow: hidden; /* Prevent Canvas overflow stretching(GEMINI FIX) */
 }
 
 .chart-summary {
@@ -735,9 +738,35 @@ main {
   margin-right: auto;
 }
 
+
+/* ════════════════════════════════════
 /* ── Mobile tuning ── */
 @media (max-width: 640px) {
   .page-intro { padding: 32px 0 22px; }
   .panel { padding: 18px; }
   .range-bar { padding: 14px 16px; }
+}
+
+════════════════════════════════════ */
+
+/* ── Mobile tuning ── */
+@media (max-width: 640px) {
+  .page-intro { 
+    padding: 32px 0 22px; 
+  }
+  .panel { 
+    padding: 18px; 
+    width: 100%;
+    overflow: hidden; /* Safeguards responsive charts from being clipped */
+  }
+  .range-bar { 
+    padding: 14px 16px; 
+    grid-template-columns: 1fr; /* Switch sticky bar to a single row to avoid breaking on narrow layouts */
+  }
+  .last-updated-inline {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: left;
+    margin-top: 8px;
+  }
 }
