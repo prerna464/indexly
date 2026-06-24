@@ -741,35 +741,44 @@ main {
 
 /* ── Mobile tuning ── */
 @media (max-width: 640px) {
-  .page-intro { padding: 32px 0 22px; }
-  .panel { padding: 18px; }
-  .range-bar { padding: 14px 16px; }
-}
 
-
-
-/* ════════════════════════════════════
-/* ── Mobile tuning ── */
-@media (max-width: 640px) {
-  .page-intro { 
-    padding: 32px 0 22px; 
+  .page-intro {
+    padding: 24px 0 18px;
   }
-  .panel { 
-    padding: 18px; 
-    width: 100%;
-    overflow: hidden; /* Safeguards responsive charts from being clipped */
-  }
-  .range-bar { 
-    padding: 14px 16px; 
-    grid-template-columns: 1fr; /* Switch sticky bar to a single row to avoid breaking on narrow layouts 
 
-*/
+  .panel {
+    padding: 16px;
   }
+
+  .range-bar {
+    position: static;      /* disable sticky */
+    padding: 14px;
+    display: block;
+  }
+
   .last-updated-inline {
-    grid-column: 1;
-    grid-row: auto;
     text-align: left;
-    margin-top: 8px;
+    margin-top: 12px;
+    margin-bottom: 12px;
   }
+
+  .custom-range-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .custom-range-panel label {
+    width: 100%;
+  }
+
+  .custom-range-panel input[type="date"] {
+    width: 100%;
+  }
+
+  .apply-btn {
+    width: 100%;
+  }
+
 }
-════════════════════════════════════ */
