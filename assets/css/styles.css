@@ -788,9 +788,9 @@ main {
     width: 100%;
   }
 
-  .chart-wrap {
-    height: 260px;
-    min-height: 260px;
-  }
+.chart-wrap {
+  height: 380px;
+  min-height: 380px;
+}
 
 }
