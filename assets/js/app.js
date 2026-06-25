@@ -322,7 +322,12 @@
     setTimeout(() => { if (chartInstance) chartInstance.resize(); }, 200);
   }
 
-  window.addEventListener("resize", () => { if (chartInstance) chartInstance.resize(); });
+  window.addEventListener("resize", () => {
+    if (chartInstance) {
+        chartInstance.resize();
+        chartInstance.update();
+    }
+});
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
