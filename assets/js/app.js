@@ -235,7 +235,7 @@
         },
         scales: {
           x: {
-            type:  "linear",
+            type:  "time",
             grid:  { display: false },
             ticks: {
               maxTicksLimit: 6,
