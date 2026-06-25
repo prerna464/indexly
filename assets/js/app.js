@@ -263,11 +263,6 @@ const pts = seriesData[key].map(p => ({
         },
         tooltip: {
           callbacks: {
-            title: (items) => {
-              if (!items.length) return "";
-              const ts = items[0].parsed.x;
-              return new Date(ts).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
-            },
             label: (item) => {
               const v = item.parsed.y;
               if (mode === "pct") return ` ${item.dataset.label}: ${v >= 0 ? "+" : ""}${v.toFixed(2)}%`;
@@ -446,5 +441,11 @@ const { start, end } = getStartEndDates();
   }
 });
 
-  document.addEventListener("DOMContentLoaded", init);
+  // Script is at bottom of <body> so DOM is already parsed.
+  // DOMContentLoaded may have already fired on mobile — call init directly.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
