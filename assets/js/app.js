@@ -1,4 +1,4 @@
-/* ════════════════════════════════════
+﻿/* ════════════════════════════════════
    INDEXWATCH — app logic
    Uses MARKET_DATA from market-data.js
 ════════════════════════════════════ */
@@ -410,13 +410,27 @@ const { start, end } = getStartEndDates();
   }
 
   // ── Init ──
+
   function init() {
-    renderIndexPicker();
-    wireRangeButtons();
-    wireChartModeToggle();
-    setDefaultCustomDates();
-    renderAll();
+  renderIndexPicker();
+  wireRangeButtons();
+  wireChartModeToggle();
+  setDefaultCustomDates();
+  renderAll();
+
+  // Force Chart.js to recalculate canvas size after mobile layout settles
+  setTimeout(() => {
+    if (chartInstance) {
+      chartInstance.resize();
+    }
+  }, 150);
+}
+
+  window.addEventListener('resize', () => {
+  if (chartInstance) {
+    chartInstance.resize();
   }
+});
 
   document.addEventListener("DOMContentLoaded", init);
 })();
