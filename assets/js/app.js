@@ -214,10 +214,11 @@ const lastUpdatedEl = document.getElementById("lastUpdatedDate");
     const seriesData = getSeriesForChart();
     const mode = state.chartMode;
     return Array.from(state.selected).map(key => {
-      const pts = seriesData[key].map(p => ({
-        x: p.date,
-        y: mode === "pct" ? p.pct : p.normalized,
-      }));
+
+const pts = seriesData[key].map(p => ({
+  x: new Date(p.date + "T00:00:00Z").getTime(),
+  y: mode === "pct" ? p.pct : p.normalized,
+}));
       return {
         label: LABELS[key],
         data: pts,
@@ -262,6 +263,11 @@ const lastUpdatedEl = document.getElementById("lastUpdatedDate");
         },
         tooltip: {
           callbacks: {
+            title: (items) => {
+              if (!items.length) return "";
+              const ts = items[0].parsed.x;
+              return new Date(ts).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+            },
             label: (item) => {
               const v = item.parsed.y;
               if (mode === "pct") return ` ${item.dataset.label}: ${v >= 0 ? "+" : ""}${v.toFixed(2)}%`;
@@ -271,12 +277,20 @@ const lastUpdatedEl = document.getElementById("lastUpdatedDate");
         },
       },
       scales: {
-        x: {
-          type: "time",
-          time: { unit: "month" },
-          grid: { display: false },
-          ticks: { font: { family: "Inter", size: 10 }, color: "#6B6459" },
-        },
+
+x: {
+  type: "linear",
+  grid: { display: false },
+  ticks: {
+    font: { family: "Inter", size: 10 },
+    color: "#6B6459",
+    maxTicksLimit: 6,
+    callback: (val) => {
+      const d = new Date(val);
+      return d.toLocaleDateString("en-IN", { month: "short", year: "2-digit", timeZone: "UTC" });
+    },
+  },
+},
         y: {
           grid: { color: "#E4DFD3" },
           ticks: {
