@@ -235,19 +235,19 @@ const pts = seriesData[key].map(p => ({
   function updateChart() {
     const datasets = buildDatasets();
     const mode = state.chartMode;
+    const canvas = document.getElementById("comparisonChart");
 
-    if (!chartInstance) {
-      const ctx = document.getElementById("comparisonChart").getContext("2d");
-      chartInstance = new Chart(ctx, {
-        type: "line",
-        data: { datasets },
-        options: chartOptions(mode),
-      });
-    } else {
-      chartInstance.data.datasets = datasets;
-      chartInstance.options = chartOptions(mode);
-      chartInstance.update();
+    // Always destroy and recreate — eliminates all stale canvas state on mobile
+    if (chartInstance) {
+      chartInstance.destroy();
+      chartInstance = null;
     }
+
+    chartInstance = new Chart(canvas, {
+      type: "line",
+      data: { datasets },
+      options: chartOptions(mode),
+    });
   }
 
   function chartOptions(mode) {
@@ -263,6 +263,12 @@ const pts = seriesData[key].map(p => ({
         },
         tooltip: {
           callbacks: {
+            title: (items) => {
+              if (!items.length) return "";
+              return new Date(items[0].parsed.x).toLocaleDateString("en-IN", {
+                day: "numeric", month: "short", year: "numeric", timeZone: "UTC"
+              });
+            },
             label: (item) => {
               const v = item.parsed.y;
               if (mode === "pct") return ` ${item.dataset.label}: ${v >= 0 ? "+" : ""}${v.toFixed(2)}%`;
