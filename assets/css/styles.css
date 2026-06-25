@@ -37,6 +37,7 @@ body {
   color: var(--ink);
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -564,6 +565,10 @@ main {
   display: block;          /* ← prevents flex/grid collapsing it */
 }
 
+#comparisonChart {
+  max-width: 100%;
+}
+
 .chart-summary {
   margin-top: 20px;
   padding-top: 16px;
@@ -784,7 +789,7 @@ main {
   }
 
   .chart-wrap {
-    height: 360px;
+    height: 260px;
     min-height: 260px;
   }
 
