@@ -794,3 +794,9 @@ main {
 }
 
 }
+
+@media (max-height: 480px) and (orientation: landscape) {
+  .range-bar {
+    position: static;
+  }
+}
