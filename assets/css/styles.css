@@ -554,9 +554,11 @@ main {
 }
 
 /* ── Chart canvas ── */
+
 .chart-wrap {
   position: relative;
   width: 100%;
+  height: 360px;
 }
 
 .chart-summary {
@@ -776,6 +778,9 @@ main {
 
   .apply-btn {
     width: 100%;
+  }
+  .chart-wrap {
+    height: 260px;
   }
 
 }
