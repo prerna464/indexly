@@ -799,4 +799,28 @@ main {
   .range-bar {
     position: static;
   }
+
+  /* Put Custom / From / To / Apply back on one line */
+  .custom-range-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: end;
+  }
+  .custom-range-panel label,
+  .apply-btn {
+    width: auto;
+  }
+
+  /* Shrink and center the "Return by Index" panel */
+  .table-panel {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* Optional: chart was made taller for portrait mobile (380px) —
+     that's too tall for a short landscape screen, shrink it back */
+  .chart-wrap {
+    height: 300px;
+    min-height: 240px;
+  }
 }
