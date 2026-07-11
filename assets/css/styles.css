@@ -811,9 +811,9 @@ main {
     width: auto;
   }
 
-  main {
+    main {
     display: grid;
-    grid-template-columns: 56% 1fr;
+    grid-template-columns: 42% 1fr;
     grid-template-areas:
       "intro   intro"
       "range   table"
@@ -832,5 +832,24 @@ main {
   .chart-wrap {
     height: 300px;
     min-height: 240px;
+  }
+
+.range-btn {
+    font-size: 0.76rem;
+    padding: 6px 10px;
+  }
+
+  .custom-range-panel input[type="date"] {
+    font-size: 0.78rem;
+    padding: 6px 8px;
+  }
+
+  .apply-btn {
+    font-size: 0.76rem;
+    padding: 6px 12px;
+  }
+
+  .return-table {
+    font-size: 0.85rem;
   }
 }
