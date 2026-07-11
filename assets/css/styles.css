@@ -58,6 +58,7 @@ a { color: inherit; text-decoration: none; }
 .site-header {
   background: var(--navy);
   padding: 0 24px;
+  position: relative;
 }
 
 .header-inner {
@@ -111,8 +112,59 @@ a { color: inherit; text-decoration: none; }
   border-bottom-color: var(--c-sp500);
 }
 
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--paper);
+  border-radius: 2px;
+}
+
 @media (max-width: 640px) {
-  .header-nav { display: none; }
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 20px rgba(15,27,46,0.25);
+    z-index: 20;
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-nav .nav-link {
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .header-nav .nav-link.active {
+    border-left: 3px solid var(--c-sp500);
+    padding-left: 21px;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
 }
 
 /* ── Page intro ── */
