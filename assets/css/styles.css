@@ -37,7 +37,7 @@ body {
   color: var(--ink);
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -843,9 +843,6 @@ main {
 .chart-wrap {
   height: 380px;
   min-height: 380px;
-  width: auto;
-  margin-left: -40px;
-  margin-right: -40px;
 }
 
 }
