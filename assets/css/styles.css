@@ -843,6 +843,9 @@ main {
 .chart-wrap {
   height: 380px;
   min-height: 380px;
+  width: auto;
+  margin-left: -40px;
+  margin-right: -40px;
 }
 
 }
