@@ -42,31 +42,36 @@
     <p class="page-sub">See how the world's major indices have performed against each other, over any window you choose.</p>
   </section>
 
-  <!-- ============ RANGE SELECTOR ============ -->
-  <section class="range-bar" aria-label="Select time range">
-    <div class="range-bar-inner">
-      <button class="range-btn" data-range="1D">1D</button>
-      <button class="range-btn" data-range="5D">5D</button>
-      <button class="range-btn" data-range="1M">1M</button>
-      <button class="range-btn" data-range="3M">3M</button>
-      <button class="range-btn" data-range="6M">6M</button>
-      <button class="range-btn" data-range="YTD">YTD</button>
-      <button class="range-btn active" data-range="1Y">1Y</button>
-      
-    </div>
+ <div class="sticky-date-wrapper">
+
+    <!-- ============ RANGE SELECTOR ============ -->
+    <section class="range-bar" aria-label="Select time range">
+      <div class="range-bar-inner">
+        <button class="range-btn" data-range="1D">1D</button>
+        <button class="range-btn" data-range="5D">5D</button>
+        <button class="range-btn" data-range="1M">1M</button>
+        <button class="range-btn" data-range="3M">3M</button>
+        <button class="range-btn" data-range="6M">6M</button>
+        <button class="range-btn" data-range="YTD">YTD</button>
+        <button class="range-btn active" data-range="1Y">1Y</button>
+        
+      </div>
 
 <p class="last-updated-inline">Last updated: <strong id="lastUpdatedDate"></strong> <span class="last-updated-note">· Market close data</span></p>
 
+      <p class="range-context" id="rangeContext">Showing returns for the trailing 1 year, as of <span id="asOfDate"></span></p>
+
+    </section>
+
+    <!-- ============ CUSTOM DATE BAR ============ -->
     <div class="custom-range-panel" id="customRangePanel">
       <button class="range-btn range-btn-custom" data-range="CUSTOM">Custom</button>
       <label>From <input type="date" id="customFrom" disabled></label>
       <label>To <input type="date" id="customTo" disabled></label>
       <button class="apply-btn" id="applyCustomRange" disabled>Apply</button>
     </div>
-    <p class="range-context" id="rangeContext">Showing returns for the trailing 1 year, as of <span id="asOfDate"></span></p>
 
-
-  </section>
+  </div>
 
   <!-- ============ MAIN GRID: TABLE + CHART ============ -->
   <section class="data-grid">
