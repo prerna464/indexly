@@ -63,11 +63,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 640px) {
   .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 20;
+    position: relative;
   }
 }
 
@@ -820,7 +816,7 @@ main {
 @media (max-width: 640px) {
 
   .page-intro {
-    padding: 160px 0 18px;
+    padding: 24px 0 18px;
   }
 
   .panel {
@@ -849,8 +845,8 @@ main {
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
-    position: fixed;
-    top: 64px;
+    position: sticky;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 15;
