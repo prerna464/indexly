@@ -230,10 +230,10 @@ main {
 }
 
 /* ── Range selector bar ── */
-.sticky-date-wrapper {
+.custom-range-panel {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 15;
 }
 
 .range-bar {
@@ -823,9 +823,6 @@ main {
     padding: 16px;
   }
 
-    .sticky-date-wrapper {
-    position: static;
-  }
 
     .range-bar {
     position: static;
@@ -901,13 +898,15 @@ main {
     grid-template-areas:
       "intro   intro"
       "range   table"
+      "custom  table"
       "chart   chart"
       "explain explain";
     gap: 16px;
   }
 
   .page-intro  { grid-area: intro; }
-  .sticky-date-wrapper { grid-area: range; position: static; }
+  .range-bar   { grid-area: range; }
+  .custom-range-panel { grid-area: custom; position: static; }
   .data-grid   { display: contents; }   /* lets its children join main's grid */
   .table-panel { grid-area: table; max-width: none; margin: 0; }
   .chart-panel { grid-area: chart; }
