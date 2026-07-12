@@ -37,7 +37,7 @@ body {
   color: var(--ink);
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: clip;
+   overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
