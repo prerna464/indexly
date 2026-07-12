@@ -810,6 +810,7 @@ main {
   }
 
     .range-bar {
+    position: static;
     padding: 14px;
     display: block;
   }
@@ -820,11 +821,19 @@ main {
     margin-bottom: 12px;
   }
 
-  .custom-range-panel {
+    .custom-range-panel {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: var(--paper);
+    padding: 10px 14px;
+    margin: 0 -14px;
+    border-bottom: 1.5px solid var(--border);
+    box-shadow: 0 4px 12px rgba(15,27,46,0.08);
   }
 
   .custom-range-panel label {
