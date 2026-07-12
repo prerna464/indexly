@@ -809,8 +809,7 @@ main {
     padding: 16px;
   }
 
-  .range-bar {
-    position: static;      /* disable sticky */
+    .range-bar {
     padding: 14px;
     display: block;
   }
