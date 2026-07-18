@@ -827,10 +827,24 @@ main {
   }
 
 
-    .range-bar {
+.range-bar {
     position: static;
-    padding: 14px;
+    padding: 8px 10px;
     display: block;
+  }
+
+  .range-bar .range-btn {
+    font-size: 0.72rem;
+    padding: 5px 9px;
+  }
+
+  .range-bar .last-updated-inline {
+    font-size: 0.68rem;
+  }
+
+  .range-bar .range-context {
+    font-size: 0.7rem;
+    margin-top: 8px;
   }
 
   .last-updated-inline {
