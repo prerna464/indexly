@@ -232,11 +232,14 @@ main {
 /* ── Range selector bar ── */
 .custom-range-panel {
   position: sticky;
-  top: 0;
+  top: 104px;
   z-index: 15;
 }
 
 .range-bar {
+  position: sticky;
+  top: 0;
+  z-index: 11;
   background: var(--paper);
   border: 1.5px solid var(--border);
   border-radius: 14px;
@@ -836,34 +839,42 @@ main {
     margin-bottom: 12px;
   }
 
-    .custom-range-panel {
+.custom-range-panel {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     position: sticky;
     top: 0px;
     left: 0;
     right: 0;
     z-index: 15;
     background: var(--paper);
-    padding: 10px 14px;
+    padding: 6px 10px;
     margin: 0;
     border-bottom: 1.5px solid var(--border);
     box-shadow: 0 4px 12px rgba(15,27,46,0.08);
   }
 
+  .custom-range-panel .range-btn-custom {
+    font-size: 0.72rem;
+    padding: 5px 9px;
+  }
+
   .custom-range-panel label {
-    width: 100%;
+    font-size: 0.68rem;
+    gap: 2px;
   }
 
   .custom-range-panel input[type="date"] {
-    width: 100%;
+    font-size: 0.72rem;
+    padding: 4px 6px;
   }
 
   .apply-btn {
-    width: 100%;
+    font-size: 0.72rem;
+    padding: 5px 10px;
   }
 
 .chart-wrap {
