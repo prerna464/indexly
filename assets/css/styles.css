@@ -872,7 +872,7 @@ main {
   }
 
   .custom-range-panel .range-btn-custom {
-    font-size: 0.72rem;
+    font-size: .80rem;
     padding: 5px 9px;
   }
 
@@ -882,12 +882,12 @@ main {
   }
 
   .custom-range-panel input[type="date"] {
-    font-size: 0.72rem;
+    font-size: .75rem;
     padding: 4px 6px;
   }
 
   .apply-btn {
-    font-size: 0.72rem;
+    font-size: 0.80rem;
     padding: 5px 10px;
   }
 
