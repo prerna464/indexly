@@ -843,7 +843,7 @@ main {
     align-items: center;
     gap: 10px;
     position: sticky;
-    top: 64px;
+    top: 0px;
     left: 0;
     right: 0;
     z-index: 15;
