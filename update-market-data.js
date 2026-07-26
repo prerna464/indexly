@@ -49,12 +49,18 @@ async function fetchYahooLatestClose(symbol) {
   const result     = json.chart.result[0];
   const timestamps = result.timestamp;
   const closes     = result.indicators.quote[0].close;
-  const lastIdx    = closes.length - 1;
-  const date  = new Date(timestamps[lastIdx] * 1000).toISOString().slice(0, 10);
-  const close = closes[lastIdx];
-  return { date, close };
-}
 
+  // Walk backward until we find a real close — Yahoo sometimes appends
+  // a placeholder entry for the current/incomplete session with close: null.
+  for (let i = closes.length - 1; i >= 0; i--) {
+    if (closes[i] !== null && closes[i] !== undefined) {
+      const date = new Date(timestamps[i] * 1000).toISOString().slice(0, 10);
+      return { date, close: closes[i] };
+    }
+  }
+
+  throw new Error(`No valid close found for ${symbol}`);
+}
 // Finds `key: [ ...entries... ]` in the file text and appends a new
 // { date, close } entry before the closing bracket, if not already present.
 function appendEntry(fileText, key, entry) {
