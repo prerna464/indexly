@@ -1173,8 +1173,7 @@ const MARKET_DATA = {
       { date: "2026-06-12", close: 631.57 },
       { date: "2026-06-15", close: 644.01 },
       { date: "2026-06-16", close: 647.82 },
-      { date: "2026-06-17", close: 648.27 },
-      { date: "2026-07-24", close: null }
+      { date: "2026-06-17", close: 648.27 }
     ],
 
     // ── Hang Seng Index ──────────────────────────
@@ -1945,8 +1944,7 @@ const MARKET_DATA = {
       { date: "2026-06-12", close: 35617.53 },
       { date: "2026-06-15", close: 35740.74 },
       { date: "2026-06-16", close: 35622.0 },
-      { date: "2026-06-17", close: 35607.34 },
-      { date: "2026-07-24", close: null }
+      { date: "2026-06-17", close: 35607.34 }
     ]
 
   }
