@@ -237,11 +237,19 @@
           x: {
             type:  "time",
             grid:  { display: false },
+            afterBuildTicks: scale => {
+              const ticksCount = 6;
+              const min  = scale.min;
+              const max  = scale.max;
+              const step = (max - min) / (ticksCount - 1);
+              scale.ticks = Array.from({ length: ticksCount }, (_, i) => ({
+                value: Math.round(min + step * i),
+              }));
+            },
             ticks: {
-              maxTicksLimit: 6,
-              font:          { family: "Inter", size: 10 },
-              color:         "#6B6459",
-              callback:      val => fmtDate(val, { month: "short", year: "2-digit" }),
+              font:     { family: "Inter", size: 10 },
+              color:    "#6B6459",
+              callback: val => fmtDate(val, { month: "short", year: "2-digit" }),
             },
           },
           y: {
