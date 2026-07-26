@@ -1,0 +1,29 @@
+name: Backfill Market Data (one-time)
+
+on:
+  workflow_dispatch:   # manual trigger only — this never runs on a schedule
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run backfill script
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: node backfill-market-data.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/js/market-data.js
+          git diff --cached --quiet || git commit -m "Backfill 5 years of real market data"
+          git push
