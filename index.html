@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indexly · Global Market Comparison</title>
+<title>BenchReturn · Compare Global Market Benchmark Returns</title>
+<meta name="description" content="BenchReturn tracks and compares daily closing returns across S&P 500, NASDAQ, STOXX 600, Hang Seng, and Nifty 50 — benchmark global market performance over any custom date range, free.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,8 +16,14 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="#" class="logo">
-      <span class="logo-mark">⌗</span>
-      <span class="logo-text">Index<em>ly</em></span>
+      <span class="logo-mark">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">Bench<em>Return</em></span>
     </a>
 <nav class="header-nav" id="headerNav">
       <a href="index.html" class="nav-link active">Markets</a>
@@ -36,10 +43,10 @@
 
   <!-- ============ PAGE TITLE / INTRO ============ -->
   <section class="page-intro">
-    <p class="eyebrow">Daily closing data · 5 global indices</p>
-    <h1 class="page-title">Compare Global Markets on One Screen</h1>
+    <p class="eyebrow">Daily closing data · 5 global benchmarks</p>
+    <h1 class="page-title">Compare Global Market Benchmarks on One Screen</h1>
     <h2 class="page-subtitle">S&P 500 vs NASDAQ vs STOXX 600 vs Hang Seng vs Nifty 50 </h2>
-    <p class="page-sub">See how the world's major indices have performed against each other, over any window you choose.</p>
+    <p class="page-sub">See how the world's major market benchmarks have performed against each other, over any window you choose — no login, no cost.</p>
   </section>
 
  <!-- ============ RANGE SELECTOR ============ -->
@@ -119,7 +126,7 @@
 
   <!-- ============ SMALL EXPLANATION ============ -->
   <section class="explainer">
-    <p><strong>How to read this:</strong> All figures use each index's daily closing value — no intraday or hourly data. Percentage return is calculated from the close on the start date of the selected range to the most recent close. The Growth of 100 view rescales every index to a common starting value of 100 at the beginning of the selected range, so you can compare relative performance across indices that trade at very different price levels and in different currencies, side by side on the same scale.</p>
+    <p><strong>How to read this:</strong> All figures use each benchmark index's daily closing value — no intraday or hourly data. Percentage return is calculated from the close on the start date of the selected range to the most recent close. The Growth of 100 view rescales every index to a common starting value of 100 at the beginning of the selected range, so you can compare relative performance across indices that trade at very different price levels and in different currencies, side by side on the same scale.</p>
   </section>
 
 </main>
@@ -128,8 +135,14 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="logo-mark">⌗</span>
-      <span class="logo-text">Index<em>ly</em></span>
+      <span class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">Bench<em>Return</em></span>
     </div>
 
     <nav class="footer-nav">
@@ -139,7 +152,7 @@
     </nav>
 
     <p class="footer-disclaimer">Data is for informational and comparison purposes only. Not investment advice. Index values reflect daily closing prices only and may be delayed.</p>
-    <p class="footer-copy">&copy; 2026 Indexly</p>
+    <p class="footer-copy">&copy; 2026 BenchReturn</p>
   </div>
 </footer>
 
