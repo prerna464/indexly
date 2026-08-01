@@ -6,8 +6,18 @@
 
 <link rel="canonical" href="https://benchreturn.com/methodology.html">
 
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
 <title>Methodology — How Benchmark Returns Are Calculated | BenchReturn</title>
 <meta name="description" content="How BenchReturn calculates benchmark index returns, handles market holidays and weekends, and computes the Growth of 100 comparison view across S&P 500, NASDAQ, STOXX 600, Hang Seng, and Nifty 50.">
+
+<meta property="og:title" content="Methodology — How Benchmark Returns Are Calculated | BenchReturn">
+<meta property="og:description" content="How BenchReturn calculates benchmark returns, handles market holidays, and computes the Growth of 100 comparison view.">
+<meta property="og:image" content="https://benchreturn.com/og-image.png">
+<meta property="og:url" content="https://benchreturn.com/methodology.html">
+<meta property="og:type" content="website">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -61,7 +71,7 @@
     <p>Each preset button calculates its starting point relative to the most recently available trading day, then applies the trading-day resolution described above. For example, selecting "1M" finds the closing value from one month prior to the latest session and compares it to the latest close.</p>
 
     <h2>Custom date range</h2>
-    <p>The Custom option lets you choose any start and end date directly. If either date falls on a weekend or holiday, Indexly uses the closest actual trading day at or before the date selected, using the same resolution logic described above.</p>
+    <p>The Custom option lets you choose any start and end date directly. If either date falls on a weekend or holiday, BenchReturn uses the closest actual trading day at or before the date selected, using the same resolution logic described above.</p>
 
     <h2>Growth of 100 view</h2>
     <p>This view answers a simple, practical question: how would each index's value have grown or shrunk over the selected period, relative to where it started? BenchReturn rescales every index to a common starting value of 100 on the first day of the selected range, then tracks that value forward based on the index's actual day-by-day percentage movement.</p>
