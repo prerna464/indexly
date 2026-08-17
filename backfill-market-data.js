@@ -19,7 +19,7 @@ const FMP_API_KEY = process.env.FMP_API_KEY;
 
 const DATA_FILE = path.join(__dirname, "assets", "js", "market-data.js");
 
-const START_DATE = "2021-07-22";
+const START_DATE = "2016-08-15";
 const END_DATE    = new Date().toISOString().slice(0, 10); // today
 
 // Same source split as the daily update script, so history and future
