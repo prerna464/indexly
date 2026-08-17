@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://benchreturn.com/methodology-compare.html">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<title>Methodology — How Comparison Metrics Are Calculated | BenchReturn</title>
+<meta name="description" content="How BenchReturn calculates Return, CAGR, Annualized Volatility, Maximum Drawdown, and Sharpe Ratio on head-to-head index comparison pages like S&P 500 vs NASDAQ 100.">
+
+<meta property="og:title" content="Methodology — How Comparison Metrics Are Calculated | BenchReturn">
+<meta property="og:description" content="How Return, CAGR, Volatility, Max Drawdown, and Sharpe Ratio are calculated on BenchReturn's head-to-head comparison pages.">
+<meta property="og:image" content="https://benchreturn.com/og-image.png">
+<meta property="og:url" content="https://benchreturn.com/methodology-compare.html">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">Bench<em>Return</em></span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link">Markets</a>
+      <a href="methodology.html" class="nav-link">Methodology</a>
+      <a href="about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-intro legal-intro">
+    <p class="eyebrow">How the comparison numbers work</p>
+    <h1 class="page-title">Comparison Page Methodology</h1>
+    <p class="page-sub">A plain-language explanation of how Return, CAGR, Volatility, Maximum Drawdown, and Sharpe Ratio are calculated on BenchReturn's head-to-head comparison pages, such as S&amp;P 500 vs NASDAQ 100.</p>
+  </section>
+
+  <section class="legal-content">
+
+    <h2>Data source and update frequency</h2>
+    <p>Comparison pages use the same daily closing values as BenchReturn's main markets page, sourced from publicly available market data. Each index updates once per day after that market's official close. See the <a href="methodology.html">main Methodology page</a> for details on trading-day resolution and holiday handling, which apply here identically.</p>
+
+    <h2>Return</h2>
+    <p>The percentage change between the closing value on the selected start date and the closing value on the selected end date:</p>
+    <p><strong>Return % = ((End Close − Start Close) ÷ Start Close) × 100</strong></p>
+
+    <h2>CAGR (Compound Annual Growth Rate)</h2>
+    <p>CAGR expresses the return as a smoothed annual growth rate, allowing periods of different lengths to be compared fairly:</p>
+    <p><strong>CAGR % = ((End Close ÷ Start Close) ^ (1 ÷ Years) − 1) × 100</strong></p>
+    <p>For date ranges shorter than one month, CAGR is annualized from a very short period and can appear unusually large or small. It is shown for consistency but should be treated as illustrative, not meaningful, over very short windows.</p>
+
+    <h2>Annualized Volatility</h2>
+    <p>Volatility measures how much an index's daily returns typically fluctuate. BenchReturn calculates the standard deviation of daily percentage changes across the selected date range, then annualizes it by multiplying by the square root of 252 (the approximate number of trading days in a year):</p>
+    <p><strong>Volatility % = Standard Deviation of Daily Returns × √252 × 100</strong></p>
+    <p>Volatility requires at least 3 data points to calculate. For shorter ranges, it is shown as "—" rather than an unreliable figure. A higher or lower volatility number is not inherently "better" or "worse" — it depends on an investor's own risk tolerance and goals.</p>
+
+    <h2>Maximum Drawdown</h2>
+    <p>Maximum Drawdown measures the largest peak-to-trough decline within the selected date range — the worst percentage drop an investor holding through that period would have experienced, measured from the highest point reached so far down to the lowest point that followed it:</p>
+    <p><strong>Max Drawdown % = ((Trough Close − Peak Close) ÷ Peak Close) × 100</strong></p>
+    <p>This is always shown as zero or negative, since it measures a decline from a prior peak.</p>
+
+    <h2>Sharpe Ratio</h2>
+    <p>Sharpe Ratio measures return earned per unit of risk taken, using an assumed risk-free rate:</p>
+    <p><strong>Sharpe Ratio = (CAGR − Risk-Free Rate) ÷ Annualized Volatility</strong></p>
+    <p>BenchReturn currently assumes a risk-free rate of 3.7% annually, based on the U.S. 4-Week Treasury Bill yield. This is a stated assumption, not a live rate — it is refreshed periodically by hand, not pulled automatically.</p> Because Sharpe Ratio depends on both CAGR and Volatility, it inherits the same short-range limitations described above and is shown as "—" wherever Volatility cannot be calculated.</p>
+
+    <h2>Current Index Characteristics</h2>
+    
+    <p>Figures such as P/E Ratio, Dividend Yield, and Number of Constituents shown on comparison pages are <strong>current values, refreshed periodically by hand</strong> — they are independent of the date range selector and do not reflect historical values for the selected period. P/E Ratio specifically refers to trailing twelve-month (TTM) earnings, not forward estimates.These figures can vary somewhat between data providers — for example, due to differences in how trailing earnings are calculated or reporting lag — so treat them as reasonable approximations rather than exact, real-time figures.</p>
+
+    <h2>Informational purposes only</h2>
+    <p>BenchReturn's comparison pages are a research and educational tool, not financial or investment advice. ETF and fund mentions are illustrative examples, not recommendations. Past performance does not predict future results. Always conduct your own research, or consult a licensed financial advisor, before making investment decisions.</p>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">Bench<em>Return</em></span>
+    </div>
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </nav>
+    <p class="footer-disclaimer">Data is for informational and comparison purposes only. Not investment advice. Index values reflect daily closing prices only and may be delayed.</p>
+    <p class="footer-copy">&copy; 2026 BenchReturn</p>
+  </div>
+</footer>
+
+</body>
+</html>

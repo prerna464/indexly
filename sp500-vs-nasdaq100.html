@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://benchreturn.com/s&amp;p500-vs-nasdaq.html">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<title>S&P 500 vs NASDAQ 100 — Compare Historical Returns | BenchReturn</title>
+<meta name="description" content="Compare S&P 500 vs NASDAQ 100 historical returns, CAGR, volatility, max drawdown, and Sharpe ratio over any custom date range — plus how to invest in each.">
+
+<meta property="og:title" content="S&P 500 vs NASDAQ 100 — Compare Historical Returns | BenchReturn">
+<meta property="og:description" content="Compare S&P 500 vs NASDAQ 100 returns, risk, and how to invest in each — free, no login required.">
+<meta property="og:image" content="https://benchreturn.com/og-image.png">
+<meta property="og:url" content="https://benchreturn.com/s&amp;p500-vs-nasdaq.html">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">Bench<em>Return</em></span>
+    </a>
+<nav class="header-nav" id="headerNav">
+      <a href="index.html" class="nav-link">Markets</a>
+      <a href="methodology-compare.html" class="nav-link">Methodology</a>
+      <a href="about.html" class="nav-link">About</a>
+    </nav>
+
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ PAGE TITLE / INTRO ============ -->
+  <section class="page-intro">
+    <p class="eyebrow">Head-to-head comparison</p>
+    <h1 class="page-title">S&P 500 vs NASDAQ 100</h1>
+<h2 class="page-subtitle">Compare historical returns, risk, and performance of the S&P 500 and NASDAQ 100 across any time period</h2>
+    
+    <p class="page-sub">
+      The S&P 500 tracks 500 of the largest U.S. companies across every sector — a broad snapshot of the American economy.
+      The NASDAQ 100 tracks the 100 largest non-financial companies on the Nasdaq exchange, heavily weighted toward technology.
+      Comparing the two shows how a broad market benchmark stacks up against a growth-and-tech-concentrated one, over any window you choose.
+    </p>
+  </section>
+
+  <!-- ============ RANGE SELECTOR (sticky, same as homepage) ============ -->
+    <section class="range-bar" aria-label="Select time range">
+      <div class="range-bar-inner">
+        <button class="range-btn" data-range="1D">1D</button>
+        <button class="range-btn" data-range="5D">5D</button>
+        <button class="range-btn" data-range="1M">1M</button>
+        <button class="range-btn" data-range="3M">3M</button>
+        <button class="range-btn" data-range="6M">6M</button>
+        <button class="range-btn" data-range="YTD">YTD</button>
+        <button class="range-btn active" data-range="1Y">1Y</button>
+      </div>
+
+<p class="last-updated-inline">Last updated: <strong id="lastUpdatedDate"></strong> <span class="last-updated-note">· Market close data</span></p>
+
+      <p class="range-context" id="rangeContext">Showing returns for the trailing 1 year, as of <span id="asOfDate"></span></p>
+
+    </section>
+
+    <!-- ============ CUSTOM DATE BAR ============ -->
+    <div class="custom-range-panel" id="customRangePanel">
+      <button class="range-btn range-btn-custom" data-range="CUSTOM">Custom</button>
+      <label>From <input type="date" id="customFrom" disabled></label>
+      <label>To <input type="date" id="customTo" disabled></label>
+      <button class="apply-btn" id="applyCustomRange" disabled>Apply</button>
+    </div>
+
+  <!-- ============ FULL-WIDTH COMPARISON CHART ============ -->
+  <section class="panel compare-chart-panel">
+    <h2 class="panel-title">Comparison Chart</h2>
+    <div class="chart-wrap compare-chart-wrap">
+      <canvas id="compareChart"></canvas>
+    </div>
+  </section>
+
+  <!-- ============ PERFORMANCE & RISK TABLE ============ -->
+  <section class="panel compare-metrics-panel">
+    <h2 class="panel-title">Performance &amp; Risk Comparison</h2>
+    <table class="compare-table" id="riskTable">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>S&amp;P 500</th>
+          <th>NASDAQ 100</th>
+        </tr>
+      </thead>
+      <tbody id="riskTableBody">
+        <!-- populated by compare.js -->
+      </tbody>
+    </table>
+<p class="compare-risk-note">Metrics update automatically based on the date range selected above. Sharpe Ratio uses CAGR and annualized volatility, not daily excess-return statistics — see <a href="methodology-compare.html">methodology</a> for details.</p>  
+  </section>
+
+  <!-- ============ CURRENT INDEX CHARACTERISTICS (static) ============ -->
+  <section class="panel compare-static-panel">
+    <h2 class="panel-title">Current Index Characteristics</h2>
+    <table class="compare-table" id="staticTable">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>S&amp;P 500</th>
+          <th>NASDAQ 100</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>P/E Ratio (TTM)</td><td>~26.49×</td><td>~35.01×</td></tr>
+        <tr><td>Dividend Yield</td><td>~1.04%</td><td>~0.51%</td></tr>
+        <tr><td>Number of Constituents</td><td>500</td><td>100</td></tr>
+      </tbody>
+    </table>
+    <p class="compare-note">These are current values, independent of the date range selected above.</p>
+  </section>
+
+  <!-- ============ DIFFERENCE BETWEEN THE INDEXES ============ -->
+  <section class="explainer compare-explainer">
+    <h2 class="panel-title">Difference Between the Indexes</h2>
+    <p><strong>What each index represents:</strong> The S&P 500 tracks 500 leading large-cap U.S. companies across a broad range of industries. The NASDAQ 100 tracks the 100 largest non-financial companies listed on the Nasdaq exchange, with a strong concentration in technology and growth-oriented businesses.</p>
+    <p><strong>Diversification:</strong> The S&P 500 provides broader diversification across companies and sectors. The NASDAQ 100 has fewer constituents and greater exposure to a smaller group of large companies, making it more concentrated.</p>
+    <p><strong>Sector exposure:</strong> The S&P 500 covers sectors including technology, healthcare, financials, industrials, consumer goods, energy and others. The NASDAQ 100 has a much larger technology and consumer-growth component and excludes financial companies.</p>
+    <p><strong>Growth vs. broad-market exposure:</strong> The S&P 500 is commonly used as a broad measure of the U.S. large-cap market. The NASDAQ 100 has a stronger tilt toward technology, innovation and growth-oriented companies, which can provide greater upside during strong growth periods but can also increase downside risk.</p>
+    <p><strong>Volatility:</strong> The NASDAQ 100 has historically experienced higher volatility than the S&P 500 because of its greater concentration in growth and technology companies. However, volatility changes over time and past patterns do not guarantee future results.</p>
+    <p><strong>Historical performance:</strong> The performance of the two indexes varies across market cycles. The NASDAQ 100 has outperformed during some periods, particularly during strong technology-led markets, while the S&P 500 can benefit from broader sector participation. Comparing the same date range provides a more meaningful view than relying on a single historical period.</p>
+    <p><strong>Dividend characteristics:</strong> The S&P 500 generally has a higher dividend yield because it includes more mature, dividend-paying companies across multiple sectors. The NASDAQ 100 generally has a lower dividend yield, as many of its largest companies place greater emphasis on reinvesting earnings for growth.</p>
+  </section>
+
+  <!-- ============ HOW TO INVEST ============ -->
+<section class="explainer compare-invest">
+  <h2 class="panel-title">How to Invest in the S&amp;P 500 and NASDAQ 100</h2>
+
+  <p>Investors cannot buy an index directly. Instead, they can get exposure through <strong>ETFs or index funds</strong> that track the S&amp;P 500 or NASDAQ 100.</p>
+
+  <h3>For U.S. investors</h3>
+
+  <p>U.S. investors have several ETFs that track these indexes.</p>
+
+  <p><strong>S&amp;P 500:</strong> VOO, IVV and SPY are among the best-known S&amp;P 500 ETFs.</p>
+
+  <p><strong>NASDAQ 100:</strong> QQQ and QQQM are widely used ETFs that track the NASDAQ 100.</p>
+
+  <p>When choosing between ETFs, investors can compare factors such as <strong>expense ratio, tracking difference, liquidity, dividend treatment and investment objective</strong>. The underlying index remains the main source of market exposure.</p>
+
+  <h3>For investors outside the U.S.</h3>
+
+  <p>International investors may have access to <strong>UCITS ETFs or locally available funds</strong> that track the same indexes. Availability, taxation, currency conversion, fund domicile and local regulations can vary by country.</p>
+
+  <p>For example, European and other international investors may encounter UCITS versions of S&amp;P 500 and NASDAQ 100 ETFs rather than the U.S.-listed ETFs.</p>
+
+  <h3>Before choosing an ETF</h3>
+
+  <p>The ETF is only the vehicle; the index determines the underlying market exposure. Before investing, it can be useful to compare how the S&amp;P 500 and NASDAQ 100 have performed over the same historical period, rather than judging either index from a single year's return.</p>
+
+  <p><strong>Use the comparison above to change the date range and compare how the S&amp;P 500 and NASDAQ 100 performed across different time periods, including their returns, CAGR, volatility, drawdowns and Sharpe ratios.</strong></p>
+
+  <p>Markets change, and the better-performing index can vary from one period to another. Use the date selector above whenever you want to compare the S&amp;P 500 and NASDAQ 100 over a different period or market cycle.</p>
+
+  <p>This comparison is for educational purposes and is not investment advice.</p>
+</section>
+
+    <h2 class="compare-section-title">US ETFs</h2>
+    <h4 class="compare-subsection-title">S&amp;P 500 ETFs (Broad US Market)</h4>
+    <div class="table-scroll">
+    <table class="compare-table etf-table">
+      <thead>
+        <tr><th>Ticker</th><th>Full Name</th><th>Issuer</th><th>Expense Ratio</th><th>Primary Use Case</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>VOO</td><td>Vanguard S&amp;P 500 ETF</td><td>Vanguard</td><td>0.03%</td><td>Most popular retail choice, ultra-low cost, high liquidity.</td></tr>
+        <tr><td>IVV</td><td>iShares Core S&amp;P 500 ETF</td><td>BlackRock</td><td>0.03%</td><td>Institutional &amp; retail standard; top choice for commission-free platforms.</td></tr>
+        <tr><td>SPY</td><td>SPDR S&amp;P 500 ETF Trust</td><td>State Street</td><td>0.0945%</td><td>Oldest &amp; most liquid ETF in the world; heavy volume for options/day trading.</td></tr>
+        <tr><td>SPLG</td><td>SPDR Portfolio S&amp;P 500 ETF</td><td>State Street</td><td>0.02%</td><td>Lowest expense ratio alternative for retail buy-and-hold investors.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4 class="compare-subsection-title">Nasdaq 100 ETFs (Tech &amp; Growth Heavy)</h4>
+    <div class="table-scroll">
+    <table class="compare-table etf-table">
+      <thead>
+        <tr><th>Ticker</th><th>Full Name</th><th>Issuer</th><th>Expense Ratio</th><th>Primary Use Case</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>QQQ</td><td>Invesco QQQ Trust</td><td>Invesco</td><td>0.20%</td><td>The flagship Nasdaq 100 ETF; 5th largest ETF globally, very high trading volume.</td></tr>
+        <tr><td>QQQM</td><td>Invesco NASDAQ 100 ETF</td><td>Invesco</td><td>0.15%</td><td>"Mini QQQ" — cheaper fee designed specifically for long-term buy-and-hold investors.</td></tr>
+        <tr><td>IQQ / NDAQ</td><td>iShares Nasdaq 100 ETF</td><td>BlackRock</td><td>0.10%</td><td>BlackRock's lower-cost direct competitor to QQQ.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 class="compare-section-title">ETFs for International Investors</h3>
+    <h4>International / European UCITS Alternatives</h4>
+    <div class="intl-etf-group">
+    <h4>S&amp;P 500 UCITS ETFs</h4>
+    <div class="intl-etf-chips">
+      <span class="intl-etf-chip"><strong>CSPX</strong> iShares Core S&amp;P 500 UCITS ETF — Accumulating</span>
+      <span class="intl-etf-chip"><strong>VUSA</strong> Vanguard S&amp;P 500 UCITS ETF — Distributing</span>
+    </div>
+  </div>
+
+  <div class="intl-etf-group">
+    <h4>Nasdaq 100 UCITS ETFs</h4>
+    <div class="intl-etf-chips">
+      <span class="intl-etf-chip"><strong>CNDX / CSX5</strong> iShares Nasdaq 100 UCITS ETF</span>
+      <span class="intl-etf-chip"><strong>EQQQ</strong> Invesco EQQQ Nasdaq-100 UCITS ETF</span>
+    </div>
+  </div>
+  </section>
+
+  <!-- ============ DISCLAIMER ============ -->
+  <section class="explainer compare-disclaimer">
+    <p><strong>Disclaimer:</strong> This comparison is for informational purposes only and does not constitute investment advice. Past performance does not predict future results. ETF mentions are illustrative, not recommendations — always do your own research or consult a licensed financial advisor.</p>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">Bench<em>Return</em></span>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </nav>
+
+    <p class="footer-disclaimer">Data is for informational and comparison purposes only. Not investment advice. Index values reflect daily closing prices only and may be delayed.</p>
+    <p class="footer-copy">&copy; 2026 BenchReturn</p>
+  </div>
+</footer>
+
+<script src="assets/js/chart.umd.min.js"></script>
+<script src="assets/js/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script src="assets/js/market-data.js"></script>
+<script src="assets/js/compare.js"></script>
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const headerNav = document.getElementById('headerNav');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = headerNav.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+</body>
+</html>
