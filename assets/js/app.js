@@ -16,7 +16,7 @@
 
   const LABELS = MARKET_DATA.meta.labels;
   const SERIES = MARKET_DATA.series;
-  const KEYS   = Object.keys(SERIES);
+  const KEYS   = ["sp500", "nasdaq", "stoxx600", "hangseng", "nifty50"];
 
   let state = {
     range:      "1Y",
