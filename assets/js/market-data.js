@@ -13,7 +13,8 @@ const MARKET_DATA = {
       nasdaq: "NASDAQ",
       stoxx600: "STOXX 600",
       hangseng: "Hang Seng",
-      nifty50: "Nifty 50"
+      nifty50: "Nifty 50",
+      nasdaq100: "NASDAQ 100"
     }
   },
 
