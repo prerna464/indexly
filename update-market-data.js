@@ -27,9 +27,11 @@ const FMP_SYMBOLS = {
 };
 
 // ── Indices fetched from Yahoo Finance (FMP free tier doesn't cover these) ──
+// AFTER
 const YAHOO_SYMBOLS = {
   nifty50: "%5ENSEI",
   stoxx600: "%5ESTOXX",
+  nasdaq100: "%5ENDX",
 };
 
 async function fetchFmpLatestClose(symbol) {
