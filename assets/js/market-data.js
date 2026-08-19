@@ -11,7 +11,7 @@ const MARKET_DATA = {
     labels: {
       sp500: "S&P 500",
       nasdaq: "NASDAQ",
-      : "STOXX 600",
+      stoxx600: "STOXX 600",
       hangseng: "Hang Seng",
       nifty50: "Nifty 50",
       nasdaq100: "NASDAQ 100"
