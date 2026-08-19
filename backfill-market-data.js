@@ -33,6 +33,7 @@ const FMP_SYMBOLS = {
 const YAHOO_SYMBOLS = {
   stoxx600: "%5ESTOXX",
   nifty50:  "%5ENSEI",
+  nasdaq100: "%5ENDX",
 };
 
 function toUnix(dateStr) {
