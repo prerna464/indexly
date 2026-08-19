@@ -11,7 +11,7 @@ const MARKET_DATA = {
     labels: {
       sp500: "S&P 500",
       nasdaq: "NASDAQ",
-      stoxx600: "STOXX 600",
+      : "STOXX 600",
       hangseng: "Hang Seng",
       nifty50: "Nifty 50",
       nasdaq100: "NASDAQ 100"
@@ -7574,7 +7574,7 @@ const MARKET_DATA = {
       { date: "2026-08-13", close: 659.239990234375 },
       { date: "2026-08-14", close: 657.8599853515625 },
       { date: "2026-08-17", close: 656.41 },
-      { date: "2026-08-18", close: 653.9600219726562 }
+      { date: "2026-08-18", close: 651.90 }
     ],
 
     // ── Hang Seng Index ──────────────────────────
