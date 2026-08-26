@@ -34,6 +34,7 @@ const YAHOO_SYMBOLS = {
   stoxx600: "%5ESTOXX",
   nifty50:  "%5ENSEI",
   nasdaq100: "%5ENDX",
+  dowjones: "%5EDJI",
 };
 
 function toUnix(dateStr) {
