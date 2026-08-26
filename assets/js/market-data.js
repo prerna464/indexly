@@ -14,7 +14,8 @@ const MARKET_DATA = {
       stoxx600: "STOXX 600",
       hangseng: "Hang Seng",
       nifty50: "Nifty 50" ,
-      nasdaq100: "NASDAQ 100"
+      nasdaq100: "NASDAQ 100",
+      dowjones: "Dow Jones (DJIA)" 
     }
   },
 
