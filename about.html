@@ -1,100 +1,169 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="canonical" href="https://benchreturn.com/about.html">
+  <link rel="canonical" href="https://benchreturn.com/about.html" />
 
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-<title>About · BenchReturn</title>
-<meta name="description" content="Learn about BenchReturn — a free tool for comparing daily benchmark index returns across global stock markets, including S&P 500, NASDAQ, STOXX 600, Hang Seng, and Nifty 50.">
+  <title>About · BenchReturn</title>
+  <meta
+    name="description"
+    content="Learn about BenchReturn — a free tool for comparing daily benchmark index returns across global stock markets, including S&P 500, NASDAQ, STOXX 600, Hang Seng, and Nifty 50."
+  />
 
-<meta property="og:title" content="About · BenchReturn">
-<meta property="og:description" content="Learn about BenchReturn — a free tool for comparing daily benchmark index returns across global stock markets.">
-<meta property="og:image" content="https://benchreturn.com/og-image.png">
-<meta property="og:url" content="https://benchreturn.com/about.html">
-<meta property="og:type" content="website">
+  <meta property="og:title" content="About · BenchReturn" />
+  <meta
+    property="og:description"
+    content="Learn about BenchReturn — a free tool for comparing daily benchmark index returns across global stock markets."
+  />
+  <meta property="og:image" content="https://benchreturn.com/og-image.png" />
+  <meta property="og:url" content="https://benchreturn.com/about.html" />
+  <meta property="og:type" content="website" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="logo">
+  <!-- ============ HEADER (same as index.html with Compare dropdown) ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
         <span class="logo-mark">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
-          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
-          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
-        </svg>
-      </span>
-      <span class="logo-text">Bench<em>Return</em></span>
-    </a>
-    <nav class="header-nav">
-      <a href="index.html" class="nav-link">Markets</a>
-      <a href="methodology.html" class="nav-link">Methodology</a>
-      <a href="about.html" class="nav-link active">About</a>
-    </nav>
-  </div>
-</header>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+            <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+            <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-text">Bench<em>Return</em></span>
+      </a>
 
-<main>
+      <nav class="header-nav" id="headerNav">
+        <a href="index.html" class="nav-link">Markets</a>
 
-  <section class="page-intro legal-intro">
-    <p class="eyebrow">About BenchReturn</p>
-    <h1 class="page-title">Built for clear benchmark comparison</h1>
-    <p class="page-sub">Why this tool exists, and who it's for.</p>
-  </section>
+        <div class="nav-dropdown">
+          <button class="nav-link nav-dropdown-toggle" id="compareToggle" aria-haspopup="true" aria-expanded="false">
+            Compare <span class="nav-caret">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="sp500-vs-nasdaq100.html" class="nav-dropdown-link">S&amp;P 500 vs NASDAQ 100</a>
+            <a href="sp500-vs-dow-jones.html" class="nav-dropdown-link">S&amp;P 500 vs Dow Jones</a>
+          </div>
+        </div>
 
-  <section class="legal-content">
+        <a href="methodology.html" class="nav-link">Methodology</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
 
-    <h2>What BenchReturn does</h2>
-    <p>BenchReturn lets you compare the daily closing performance of major global stock market benchmarks — including S&amp;P 500, NASDAQ, STOXX 600, Hang Seng and Nifty 50 — across any time range, side by side.</p>
-
-    <h2>Why daily closes</h2>
-    <p>Markets move constantly during trading hours, but day-to-day comparison is most meaningful when measured close-to-close. BenchReturn intentionally avoids intraday or minute-by-minute data, focusing instead on the number that matters most for long-term comparison: where each index ended the day.</p>
-
-    <h2>Who it's for</h2>
-    <p>BenchReturn is built for anyone curious about how markets around the world are performing relative to each other — students, long-term investors doing their own research, or anyone who wants a quick visual answer to "how is my market doing compared to others?"</p>
-
-    <h2>Not investment advice</h2>
-    <p>BenchReturn is an informational and comparison tool only. Nothing on this site should be taken as financial or investment advice. Always do your own research or consult a qualified advisor before making investment decisions.</p>
-
-<h2>Get in touch</h2>
-    <p>Questions, feedback, or suggestions about BenchReturn are welcome at <a href="mailto:benchreturn@rediffmail.com">benchreturn@rediffmail.com</a>.</p>
-
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo-mark">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
-          <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
-          <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
-        </svg>
-      </span>
-      <span class="logo-text">Bench<em>Return</em></span>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
-    <nav class="footer-nav">
-      <a href="about.html">About</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
-    </nav>
-    <p class="footer-disclaimer">Data is for informational and comparison purposes only. Not investment advice. Index values reflect daily closing prices only and may be delayed.</p>
-    <p class="footer-copy">&copy; 2026 BenchReturn</p>
-  </div>
-</footer>
+  </header>
 
+  <main>
+    <!-- ============ PAGE INTRO ============ -->
+    <section class="page-intro legal-intro">
+      <p class="eyebrow">About BenchReturn</p>
+      <h1 class="page-title">Built for clear benchmark comparison</h1>
+      <p class="page-sub">Why this tool exists, and who it's for.</p>
+    </section>
+
+    <!-- ============ ABOUT CONTENT ============ -->
+    <section class="legal-content">
+      <h2>What BenchReturn does</h2>
+      <p>BenchReturn lets you compare the daily closing performance of major global stock market benchmarks — including S&amp;P 500, NASDAQ, STOXX 600, Hang Seng and Nifty 50 — across any time range, side by side.</p>
+
+      <h2>Why daily closes</h2>
+      <p>Markets move constantly during trading hours, but day-to-day comparison is most meaningful when measured close-to-close. BenchReturn intentionally avoids intraday or minute-by-minute data, focusing instead on the number that matters most for long-term comparison: where each index ended the day.</p>
+
+      <h2>Who it's for</h2>
+      <p>BenchReturn is built for anyone curious about how markets around the world are performing relative to each other — students, long-term investors doing their own research, or anyone who wants a quick visual answer to "how is my market doing compared to others?"</p>
+
+      <h2>Not investment advice</h2>
+      <p>BenchReturn is an informational and comparison tool only. Nothing on this site should be taken as financial or investment advice. Always do your own research or consult a qualified advisor before making investment decisions.</p>
+
+      <h2>Get in touch</h2>
+      <p>Questions, feedback, or suggestions about BenchReturn are welcome at <a href="mailto:benchreturn@rediffmail.com">benchreturn@rediffmail.com</a>.</p>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="12" width="4" height="7" rx="1" fill="currentColor"/>
+            <rect x="8" y="7" width="4" height="12" rx="1" fill="currentColor"/>
+            <rect x="15" y="2" width="4" height="17" rx="1" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-text">Bench<em>Return</em></span>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </nav>
+      <p class="footer-disclaimer">Data is for informational and comparison purposes only. Not investment advice. Index values reflect daily closing prices only and may be delayed.</p>
+      <p class="footer-copy">&copy; 2026 BenchReturn</p>
+    </div>
+  </footer>
+
+  <!-- ============ SCRIPTS (hamburger + dropdown) ============ -->
+  <script>
+    // Hamburger toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const headerNav = document.getElementById('headerNav');
+
+    if (hamburgerBtn && headerNav) {
+      hamburgerBtn.addEventListener('click', () => {
+        const isOpen = headerNav.classList.toggle('open');
+        hamburgerBtn.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    // Dropdown toggle (same as index.html)
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+      const dropdown = toggle.closest('.nav-dropdown');
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    });
+
+    // Close dropdowns on outside click
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+        d.classList.remove('open');
+        const btn = d.querySelector('.nav-dropdown-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close dropdowns on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => {
+          d.classList.remove('open');
+          const btn = d.querySelector('.nav-dropdown-toggle');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
