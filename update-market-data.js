@@ -32,6 +32,7 @@ const YAHOO_SYMBOLS = {
   nifty50: "%5ENSEI",
   stoxx600: "%5ESTOXX",
   nasdaq100: "%5ENDX",
+  dowjones: "%5EDJI",
 };
 
 async function fetchFmpLatestClose(symbol) {
