@@ -26,9 +26,10 @@
     chartMode:  "pct",
   };
 
-  const ALL_DATES = SERIES[KEYS[0]].map(p => p.date);
-  const LAST_DATE = ALL_DATES[ALL_DATES.length - 1];
-
+const LAST_DATE = KEYS
+  .map(k => SERIES[k][SERIES[k].length - 1].date)
+  .reduce((max, d) => (d > max ? d : max));
+   
   // ── Helpers ──
   function findClosestIndex(dateStr, dates) {
     let lo = 0, hi = dates.length - 1, ans = 0;
