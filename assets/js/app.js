@@ -26,10 +26,26 @@
     chartMode:  "pct",
   };
 
-const LAST_DATE = KEYS
-  .map(k => SERIES[k][SERIES[k].length - 1].date)
-  .reduce((max, d) => (d > max ? d : max));
-   
+function computeLastDate(keys, series) {
+  const lastDates = keys.map(k => series[k][series[k].length - 1].date);
+
+  // Count how many markets share each candidate date
+  const counts = {};
+  lastDates.forEach(d => { counts[d] = (counts[d] || 0) + 1; });
+
+  // Only consider dates where at least 2 markets agree
+  const qualifying = Object.keys(counts).filter(d => counts[d] >= 2);
+
+  if (qualifying.length > 0) {
+    return qualifying.reduce((max, d) => (d > max ? d : max));
+  }
+
+  // Fallback: if somehow no date has 2+ markets (all 5 on different days),
+  // fall back to the plain newest date so the page never breaks
+  return lastDates.reduce((max, d) => (d > max ? d : max));
+}
+
+const LAST_DATE = computeLastDate(KEYS, SERIES);   
   // ── Helpers ──
   function findClosestIndex(dateStr, dates) {
     let lo = 0, hi = dates.length - 1, ans = 0;
