@@ -6,12 +6,9 @@
 (function () {
   "use strict";
 
-  const KEYS = ["sp500", "nasdaq100"];
-
-  const COLORS = {
-    sp500:     "#C1432A",
-    nasdaq100: "#3D5A80",
-  };
+   const KEYS   = window.COMPARE_CONFIG.keys;
+   
+const COLORS = window.COMPARE_CONFIG.colors;
 
   const RISK_FREE_RATE = 0.037; // 4-week T-bill yield, ~Aug 2026, source: tradingeconomics.com/united-states/4-week-bill-yield
   const LABELS = MARKET_DATA.meta.labels;
@@ -162,14 +159,14 @@
       { label: "Sharpe Ratio",           get: x => x && x.sharpe !== null ? x.sharpe.toFixed(2) : "—", cls: x => x && x.sharpe !== null ? cellClass(x.sharpe) : "muted" },
     ];
 
-    const tbody = document.getElementById("riskTableBody");
-    tbody.innerHTML = rows.map(r => `
-      <tr>
-        <td>${r.label}</td>
-        <td class="metric-value ${r.cls(m.sp500)}">${r.get(m.sp500)}</td>
-        <td class="metric-value ${r.cls(m.nasdaq100)}">${r.get(m.nasdaq100)}</td>
-      </tr>
-    `).join("");
+
+   const tbody = document.getElementById("riskTableBody");
+   tbody.innerHTML = rows.map(r => `
+  <tr>
+    <td>${r.label}</td>
+    ${KEYS.map(key => `<td class="metric-value ${r.cls(m[key])}">${r.get(m[key])}</td>`).join("")}
+  </tr>
+`).join("");
 
     const daySpan = (new Date(end) - new Date(start)) / 86400000;
     const note = document.querySelector(".compare-metrics-panel .compare-note");
