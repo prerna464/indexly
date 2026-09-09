@@ -66,18 +66,21 @@ const LAST_DATE = computeLastDate(KEYS, SERIES);
     return d.toISOString().slice(0, 10);
   }
 
-  function rangeToStartDate(range) {
-    switch (range) {
-      case "1D":  return addDays(LAST_DATE, -1);
-      case "5D":  return addDays(LAST_DATE, -7);
-      case "1M":  return addDays(LAST_DATE, -30);
-      case "3M":  return addDays(LAST_DATE, -91);
-      case "6M":  return addDays(LAST_DATE, -182);
-      case "YTD": return LAST_DATE.slice(0, 4) + "-01-01";
-      default:    return addDays(LAST_DATE, -365);
-    }
-  }
 
+function rangeToStartDate(range) {
+  switch (range) {
+    case "1D":  return addDays(LAST_DATE, -1);
+    case "5D":  return addDays(LAST_DATE, -7);
+    case "1M":  return addDays(LAST_DATE, -30);
+    case "3M":  return addDays(LAST_DATE, -91);
+    case "6M":  return addDays(LAST_DATE, -182);
+    case "YTD": return LAST_DATE.slice(0, 4) + "-01-01";
+    case "2Y":  return addDays(LAST_DATE, -730);
+    case "3Y":  return addDays(LAST_DATE, -1095);
+    case "5Y":  return addDays(LAST_DATE, -1826);
+    default:    return addDays(LAST_DATE, -365);
+  }
+}
   function getStartEndDates() {
     if (state.range === "CUSTOM" && state.customFrom && state.customTo)
       return { start: state.customFrom, end: state.customTo };
@@ -269,7 +272,16 @@ const LAST_DATE = computeLastDate(KEYS, SERIES);
             ticks: {
               font:     { family: "Inter", size: 10 },
               color:    "#6B6459",
-              callback: val => fmtDate(val, { month: "short", year: "2-digit" }),
+
+
+// AFTER
+callback: val => {
+  const { start, end } = getStartEndDates();
+  const daySpan = (new Date(end) - new Date(start)) / 86400000;
+  return daySpan <= 10
+    ? fmtDate(val, { day: "numeric", month: "short" })
+    : fmtDate(val, { month: "short", year: "2-digit" });
+},
             },
           },
           y: {
