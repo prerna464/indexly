@@ -14,7 +14,7 @@ const MARKET_DATA = {
       stoxx600: "STOXX 600",
       hangseng: "Hang Seng",
       nifty50: "Nifty 50" ,
-      nasdaq100: "NASDAQ 100",
+      100: " 100",
       dowjones: "Dow Jones (DJIA)" 
     }
   },
@@ -12736,7 +12736,7 @@ sp500: [
       { date: "2026-10-14", close: 22622.70 },
       { date: "2026-10-15", close: 22997.35 },
       { date: "2026-10-16", close: 23146.15 },
-      { date: "2026-10-19", close: 22,888.95 }
+      { date: "2026-10-19", close: 22888.95 }
     ],
 
     // ── NASDAQ 100 ──────────────────────────
