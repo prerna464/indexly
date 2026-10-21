@@ -14,7 +14,7 @@ const MARKET_DATA = {
       stoxx600: "STOXX 600",
       hangseng: "Hang Seng",
       nifty50: "Nifty 50" ,
-      100: " 100",
+      nasdaq100: "NASDAQ 100",
       dowjones: "Dow Jones (DJIA)" 
     }
   },
@@ -7709,7 +7709,8 @@ sp500: [
       { date: "2026-10-14", close: 637.75 },
       { date: "2026-10-15", close: 640.16 },
       { date: "2026-10-16", close: 644.74 },
-      { date: "2026-10-19", close: 639.56 }
+      { date: "2026-10-19", close: 639.56 },
+      { date: "2026-10-20", close: 638.64 }
     ],
 
     // ── Hang Seng Index ──────────────────────────
