@@ -10,7 +10,7 @@
    
 const COLORS = window.COMPARE_CONFIG.colors;
 
-  const RISK_FREE_RATE = 0.037; // 4-week T-bill yield, ~Aug 2026, source: tradingeconomics.com/united-states/4-week-bill-yield
+  const RISK_FREE_RATE = 0.0405; // 4-week T-bill yield, ~Aug 2026, source: tradingeconomics.com/united-states/4-week-bill-yield
   const LABELS = MARKET_DATA.meta.labels;
   const SERIES = MARKET_DATA.series;
 
