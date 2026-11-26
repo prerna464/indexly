@@ -1,0 +1,29 @@
+name: Update USD/INR data
+
+on:
+  workflow_dispatch:          # lets you click "Run workflow" manually
+  schedule:
+    - cron: "30 22 * * 1-5"   # weekdays 22:30 UTC
+
+permissions:
+  contents: write             # needed to commit the updated file
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build usdinr-data.js
+        run: node update-usdinr-data.js
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add assets/js/usdinr-data.js
+          git diff --cached --quiet || (git commit -m "Update USD/INR data" && git push)
